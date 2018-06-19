@@ -48,7 +48,6 @@ margin: 0 auto;
 
 #computer {
 margin-top: 20px;
-margin-bottom: 40px;
 }
 
 #player {
@@ -128,10 +127,24 @@ display: inline-block;
 height: 180px;
 }
 
+#middle {
+height: 100px;
+width: 1500px;
+padding-top: 20px; 
+}
+
+#big, #bank {
+display: inline-block;
+}
+
+#big {
+position: relative;
+float: left;
+left: 300px;
+}
+
 #bank {
-position: absolute;
-right: 400px;
-bottom: 450px;
-display: inline;
-text-align: right;
+position: relative;
+float: right;
+right: 150px;
 }
