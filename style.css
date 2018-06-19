@@ -1,0 +1,137 @@
+body {
+background-color: #000000;
+}
+
+h1 {
+text-align: center;
+color: #ffffff;
+font-size: 80px;
+font-family: "nueva std";
+margin: 0;
+}
+
+h2 {
+display: inline-block;
+color: #ffffff;
+font-size: 40px;
+font-family: "nueva std";
+}
+
+button {
+margin: 0 auto;
+text-align: center;
+}
+
+
+.playerCard, .computerCard {
+display: inline-block;
+margin: 0 auto;
+padding: 2px;
+height: 200px;
+width: 138px;
+}
+
+#gameContainer {
+background-image: url('pictures/poker-table.jpg');
+background-size: cover;
+width: 1500px;
+height: 800px;
+border-radius: 50px;
+margin: 0 auto;
+padding-top: 60px;
+}
+
+#computer, #player {
+width: 1500px;
+margin: 0 auto;
+}
+
+#computer {
+margin-top: 20px;
+margin-bottom: 40px;
+}
+
+#player {
+margin-top: 40px;
+margin-bottom: 20px;
+}
+
+#computerHand {
+width: 1000px;
+height: 210px;
+margin: 0 auto;
+display: inline-block;
+}
+
+#playerHand {
+width: 1000px;
+height: 210px;
+margin: 0 auto;
+display: inline-block;
+}
+
+#playerPoints, #computerPoints {
+width: 100px;
+display: inline-block;
+vertical-align: top;
+margin-top: 55px;
+margin-left: 100px;
+}
+
+#bottom {
+width: 1500px;
+height: 180px;
+margin: 0 auto;
+}
+
+#buttons {
+vertical-align: top;
+height: 180px;
+width: 550px;
+display: inline-block;
+margin: 0 auto;
+margin-left: 100px;
+}
+
+#deal, #hit, #stand{
+vertical-align: top;
+display: inline-block;
+margin-right: 20px;
+}
+
+#hit, #stand, #bet{
+visibility: hidden;
+}
+
+#deal {
+position: absolute;
+left: 550px;
+}
+
+#stand {
+position: absolute;
+left: 550px;
+}
+
+#hit {
+position: absolute;
+left: 380px;
+}
+
+#bet{
+position: absolute;
+left: 380px;
+}
+
+#chips {
+display: inline-block;
+height: 180px;
+}
+
+#bank {
+position: absolute;
+right: 400px;
+bottom: 450px;
+display: inline;
+text-align: right;
+}
