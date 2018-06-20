@@ -9,11 +9,11 @@ function moneyFormat(number) {
 			betStr = betStr3;
 		} else {
 			betStr = betStr2 + ',' + betStr3;
-		};
+		}
 	} else {
 		betStr = betStr1 + ',' + betStr2 + ',' + betStr3;
 	} return betStr;
-};
+}
 
 var bet = 0;
 
@@ -22,7 +22,7 @@ function betShow() {
 	dealButton.src = "pictures/buttons/dealbuttonclickred.png";	
 	bet = 0;
 	betAmount.textContent = 'BET: ' + moneyFormat(bet);
-};
+}
 
 var betAmount = document.getElementById('big');
 betAmount.textContent = 'BET: $' + bet;
@@ -58,7 +58,7 @@ function standFunction() {
 		if (player.bank >= bet) {
 			dealButton.addEventListener('click', start);
 		}}, 1200);
-};
+}
 
 
 
@@ -67,12 +67,12 @@ function start() {
 	var removeComputer = document.getElementsByClassName('computerCard');
 	for (var i = removeComputer.length-1; i >= 0; i--) {
 		computer.cards.removeChild(removeComputer[i]);
-	};
+	}
 
 	var removePlayer = document.getElementsByClassName('playerCard');
 	for (var i = removePlayer.length-1; i >= 0; i--) {
 		player.cards.removeChild(removePlayer[i]);
-	};
+	}
 	player.hand = [];
 	computer.hand = [];
 	betAmount.textContent = 'BET: $' + moneyFormat(bet);
@@ -89,7 +89,7 @@ function start() {
 	player.deal();
 	document.getElementsByClassName('computerCard')[1].src = "pictures/card-back.png";
 	document.getElementById('computerPoints').style.visibility = "hidden";
-};
+}
 
 
 // Incredibly long if/else function for checking the winner of the round
@@ -109,20 +109,19 @@ function checkWinner() {
 	} else if (totalValue(player.hand) <= 21) {
 		while (totalValue(computer.hand) < 17) {
 			computer.hit();
-			if (totalValue(computer.hand) > 21) {
-				big.textContent = (computer.name + ' BUST').toUpperCase();
-				return 'player';
-				break;
-			};
-		};
+		}
 		for (var i = 0; i < computer.hand.length; i++) {
 			if ((totalValue(computer.hand) == 17) && (aceCheck(computer.hand[i]))) {
-				computer.hit();
-				if (totalValue(computer.hand) > 21) {
-					big.textContent = (computer.name + ' BUST').toUpperCase();
-					return 'player';
-				};
-		} if (totalValue(computer.hand) <= 21) {
+				while (totalValue(computer.hand) <= 17) {
+					computer.hit();
+				}
+			}
+		}
+		if (totalValue(computer.hand) > 21) {
+			big.textContent = (computer.name + ' BUST').toUpperCase();
+			return 'player';
+		}
+		if (totalValue(computer.hand) <= 21) {
 			if (totalValue(player.hand) > totalValue(computer.hand)) {
 				big.textContent = (player.name + ' WINS!').toUpperCase();
 				return 'player';
@@ -132,11 +131,11 @@ function checkWinner() {
 			} else {
 				big.textContent = 'PUSH!';
 				return 'push';
-			};
-		};
-		};
-	};	
-};
+			}
+		}
+		
+	}
+}
 
 
 
@@ -160,9 +159,9 @@ function deal() {
 	this.total.textContent = totalValue(this.hand);
 	if (checkBlackjack(this.hand)) {
 		setTimeout(standFunction,500);
-	};
+	}
 
-};
+}
 
 
 // Check if the hand has Blackjack
@@ -171,8 +170,8 @@ function checkBlackjack(hand) {
 		return true;
 	} else {
 		return false;
-	};
-};
+	}
+}
 
 
 // Take another card
@@ -187,8 +186,8 @@ function hit() {
 	this.total.textContent = totalValue(this.hand);
 	if (totalValue(this.hand) > 21) {
 		standFunction();
-	};	
-};
+	}
+}
 
 
 // Check if the selected card is an Ace
@@ -196,8 +195,8 @@ function aceCheck(card) {
 	var x = false;
 	if (cardValue(card) == 11) {
 			x = true;
-		}; return x;
-};
+		} return x;
+}
 
 
 // Total value of a hand
@@ -205,13 +204,13 @@ function totalValue(array) {
 	var val = 0;
 	for (var i = 0; i < array.length; i++) {	
 		val += cardValue(array[i]);
-	};
+	}
 	for (var a = 0; a < array.length; a++) {
 		if (val > 21 && aceCheck(array[a])) {
 			val -= 10;
-	};	
-	}; return val;
-};
+	}
+	} return val;
+}
 
 
 // Value of an individual card
@@ -222,8 +221,8 @@ function cardValue(foo) {
 		return 10;
 	} else {
 		return parseInt(foo[0]);
-	};
-};
+	}
+}
 
 // Player object
 var player = {
@@ -249,7 +248,7 @@ var computer = {
 };
 
 // Player's bankroll
-var bankroll = document.getElementById('bank')
+var bankroll = document.getElementById('bank');
 bankroll.textContent = 'BANK: $'+ moneyFormat(player.bank);
 
 // Directory for images of cards
@@ -296,7 +295,7 @@ for(var i = 1; i <= 13; i++) {
 	deck.push(i + 'H');
 	deck.push(i + 'S');	
 	shuffle(deck);
-};
+}
 
 
 
@@ -305,5 +304,5 @@ function shuffle(array) {
 	for (let i = array.length - 1; i > 0; i--) {
 		var j = Math.floor(Math.random() * (i + 1));
 		[array[i], array[j]] = [array[j], array[i]];
-	};
-};
+	}
+}
