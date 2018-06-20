@@ -4,8 +4,8 @@ function moneyFormat(number) {
 	var betStr1 = betStr.slice(-9, -6);
 	var betStr2 = betStr.slice(-6, -3);
 	var betStr3 = betStr.slice(-3);
-	if (betStr1 == "") {
-		if (betStr2 == "") {
+	if (betStr1 === "") {
+		if (betStr2 === "") {
 			betStr = betStr3;
 		} else {
 			betStr = betStr2 + ',' + betStr3;
