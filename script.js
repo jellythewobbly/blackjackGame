@@ -109,17 +109,21 @@ function checkWinner() {
 	} else if (totalValue(player.hand) <= 21) {
 		while (totalValue(computer.hand) < 17) {
 			computer.hit();
+			if (totalValue(computer.hand) > 21) {
+				big.textContent = (computer.name + ' BUST').toUpperCase();
+				return 'player';
+			}
 		}
 		for (var i = 0; i < computer.hand.length; i++) {
 			if ((totalValue(computer.hand) == 17) && (aceCheck(computer.hand[i]))) {
 				while (totalValue(computer.hand) <= 17) {
 					computer.hit();
+					if (totalValue(computer.hand) > 21) {
+						big.textContent = (computer.name + ' BUST').toUpperCase();
+						return 'player';
+					}
 				}
 			}
-		}
-		if (totalValue(computer.hand) > 21) {
-			big.textContent = (computer.name + ' BUST').toUpperCase();
-			return 'player';
 		}
 		if (totalValue(computer.hand) <= 21) {
 			if (totalValue(player.hand) > totalValue(computer.hand)) {
@@ -136,6 +140,7 @@ function checkWinner() {
 		
 	}
 }
+
 
 
 
@@ -158,7 +163,7 @@ function deal() {
 	this.cards.appendChild(cardImage2);
 	this.total.textContent = totalValue(this.hand);
 	if (checkBlackjack(this.hand)) {
-		setTimeout(standFunction,500);
+		setTimeout(standFunction,250);
 	}
 
 }
