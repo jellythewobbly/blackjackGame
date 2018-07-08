@@ -36,7 +36,7 @@ function standFunction() {
 	setTimeout(function() {
 		document.getElementsByClassName('computerCard')[1].src = imgsrc + computer.hand[1] + '.png';
 		document.getElementById('computerPoints').style.visibility = "visible";	
-	}, 800);
+	}, 500);
 
 	setTimeout(function() {
 		if (checkWinner() === 'player') {
@@ -57,7 +57,7 @@ function standFunction() {
 		dealButton.removeEventListener('click', start);
 		if (player.bank >= bet) {
 			dealButton.addEventListener('click', start);
-		}}, 1200);
+		}}, 1000);
 }
 
 
@@ -163,7 +163,7 @@ function deal() {
 	this.cards.appendChild(cardImage2);
 	this.total.textContent = totalValue(this.hand);
 	if (checkBlackjack(this.hand)) {
-		setTimeout(standFunction,250);
+		setTimeout(standFunction,150);
 	}
 
 }
